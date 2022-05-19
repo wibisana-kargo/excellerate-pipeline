@@ -6,6 +6,8 @@ on: push
 jobs:
   test:
     name: Test Application
+    runs-on: self-hosted
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
