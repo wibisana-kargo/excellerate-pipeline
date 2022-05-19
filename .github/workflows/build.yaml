@@ -11,9 +11,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Docker build
         run: |
+          cd go
           docker build -t temp .
       - name: Docker publish
         run: |
+          cd go
           docker tag temp asia.gcr.io/kargotech-prod/wibisana-excellerate:${{ github.sha }}
           docker tag temp asia.gcr.io/kargotech-prod/wibisana-excellerate:latest
           docker push asia.gcr.io/kargotech-prod/wibisana-excellerate:${{ github.sha }}
