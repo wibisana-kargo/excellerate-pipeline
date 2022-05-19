@@ -10,6 +10,7 @@ Before working on this assignment, we suggest fulfilling these pre-requisites to
 
 - Create a fork of this repository
 - Choose 1 language for your assignment (go/python/nodejs), your pipelines should fulfill both requirements for the selected language
+- Install git
 - (optional) Work on a unix machine, build environment and examples are made for a unix machine
 - (optional) Docker hub account (personal)
 - (optional) Install docker
