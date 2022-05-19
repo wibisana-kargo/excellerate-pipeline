@@ -9,3 +9,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Docker build
+        run: |
+          docker build -t temp .
+      - name: Docker publish
+        run: |
+          docker tag temp asia.gcr.io/kargotech-prod/wibisana-excellerate:${{ github.sha }}
+          docker tag temp asia.gcr.io/kargotech-prod/wibisana-excellerate:latest
+          docker push asia.gcr.io/kargotech-prod/wibisana-excellerate:${{ github.sha }}
+          docker push asia.gcr.io/kargotech-prod/wibisana-excellerate:latest
