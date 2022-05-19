@@ -17,7 +17,7 @@ jobs:
           docker build -t temp .
       - name: Docker publish
         run: |
-          docker login -u carash -p ${{ secrets.DOCKER_PASSWORD }}
+          docker login -u carash -p '${{ secrets.DOCKER_PASSWORD }}'
           docker tag temp carash/excellerate-wibisana:${{ github.sha }}
           docker tag temp carash/excellerate-wibisana:latest
           docker push carash/excellerate-wibisana:${{ github.sha }}
