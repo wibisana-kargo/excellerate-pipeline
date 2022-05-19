@@ -6,7 +6,7 @@ on: push
 jobs:
   test:
     name: Test Application
-    runs-on: self-hosted
+    runs-on: ubuntu:20.04
 
     steps:
       - name: Checkout code
@@ -17,8 +17,8 @@ jobs:
           docker build -t temp .
       - name: Docker publish
         run: |
-          cd go
-          docker tag temp asia.gcr.io/kargotech-prod/wibisana-excellerate:${{ github.sha }}
-          docker tag temp asia.gcr.io/kargotech-prod/wibisana-excellerate:latest
-          docker push asia.gcr.io/kargotech-prod/wibisana-excellerate:${{ github.sha }}
-          docker push asia.gcr.io/kargotech-prod/wibisana-excellerate:latest
+          docker login -u carash -p ${{ secrets.DOCKER_PASSWORD }}
+          docker tag temp carash/excellerate-wibisana:${{ github.sha }}
+          docker tag temp carash/excellerate-wibisana:latest
+          docker push carash/excellerate-wibisana:${{ github.sha }}
+          docker push carash/excellerate-wibisana:latest
