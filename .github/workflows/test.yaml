@@ -15,4 +15,5 @@ jobs:
         uses: actions/checkout@v2
       - name: Run unit tests
         run: |
+          cd go
           go test .
